@@ -1,6 +1,6 @@
 const axios = require('axios');
 async function test(){
-    const res =await axios.get('http://localhost:3000', {
+    const res =await axios.get('http://localhost:3000/basic', {
         // Axios looks for the `auth` option, and, if it is set, formats a
         // basic auth header for you automatically.
         auth: {
