@@ -24,7 +24,6 @@ function authentication(req, res, next) {
     if (user == 'admin' && pass == 'password') {
  
         // If Authorized user
-        res.end("hello");
         next();
     } else {
         var err = new Error('You are not authenticated!');
@@ -37,9 +36,21 @@ function authentication(req, res, next) {
  
 // First step is the authentication of the client
 app.use(authentication)
-app.use(express.static(path.join(__dirname, 'public')));
- 
+//app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/basic', (req, res) => {
+    res.end("Call success with AAD auth!");
+});
+
+app.get('/basic2', (req, res) => {
+    res.end("Call success with AAD auth! 2");
+});
+
+
 // Server setup
-app.listen((3000), () => {
+app.listen(3000, "localhost", () => {
     console.log("Server is Running ");
 })
+
+
+
